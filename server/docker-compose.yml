@@ -3,24 +3,33 @@ services:
     container_name: ${APP_HOST}
     build: .
     restart: unless-stopped
-    ports:
-      - ${APP_PORT}:3000
+    # ports:
+    #   - ${APP_PORT}:3000
     volumes:
       - .:/app
       - node_modules:/app/node_modules
+    environment:
+      - VIRTUAL_HOST=api.pomello.danielarroyo.dev
+      - LETSENCRYPT_HOST=api.pomello.danielarroyo.dev
+      - LETSENCRYPT_EMAIL=darroyo083@gmail.com
+    depends_on:
+      - mongo
+    env_file:
+      - .env
     networks:
+      - proxy
       - pomello_network
 
   mongo:
     image: mongo
-    container_name: ${DB_HOST}
+    container_name: mongo_pomello
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
       MONGO_INITDB_DATABASE: ${DB_NAME}
-    ports:
-      - ${DB_PORT}:27017
+    # ports:
+    #   - ${DB_PORT}:27017
     volumes:
       - ./mongo-seed:/docker-entrypoint-initdb.d:ro
     networks:
@@ -30,4 +39,7 @@ volumes:
   node_modules:
   
 networks:
+  proxy:
+    name: nginx-proxy
+    external: true
   pomello_network:
