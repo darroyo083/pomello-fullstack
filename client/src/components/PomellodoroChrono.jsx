@@ -72,7 +72,7 @@ const PomellodoroChrono = () => {
     // check status from backend
     try {
       const statusRes = await fetch(
-        "http://localhost:3013/chrono/pomellodoro/visual/status",
+        "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/visual/status",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -96,8 +96,8 @@ const PomellodoroChrono = () => {
       }
 
       const endpoint = isRunning
-        ? "http://localhost:3013/chrono/pomellodoro/stop"
-        : "http://localhost:3013/chrono/pomellodoro/start";
+        ? "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/stop"
+        : "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/start";
 
       const options = {
         method: "POST",
@@ -157,7 +157,7 @@ const PomellodoroChrono = () => {
       try {
         const token = getToken();
         const response = await fetch(
-          "http://localhost:3013/chrono/pomellodoro/status",
+          "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/status",
           {
             method: "GET",
             headers: {
@@ -198,7 +198,7 @@ const PomellodoroChrono = () => {
       try {
         const token = getToken();
         const res = await fetch(
-          "http://localhost:3013/chrono/pomellodoro/visual/status",
+          "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/visual/status",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -264,7 +264,7 @@ const PomellodoroChrono = () => {
       try {
         const token = getToken();
         const response = await fetch(
-          "http://localhost:3013/chrono/pomellodoro/status",
+          "https://api.pomello.danielarroyo.dev/chrono/pomellodoro/status",
           {
             method: "GET",
             headers: {

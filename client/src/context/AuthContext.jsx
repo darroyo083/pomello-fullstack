@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { saveToken, removeToken, saveToLocalStorage, getFromLocalStorage } from "../utils/localStorage";
 import { login, register, logout } from "../utils/auth";
 
-const BASE_URL = "http://localhost:3013";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+// const BASE_URL = "http://localhost:3013";
+
 
 const AuthContext = createContext({
     userData: null,

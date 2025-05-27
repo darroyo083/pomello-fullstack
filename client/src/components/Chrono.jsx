@@ -27,7 +27,7 @@ function PomellodoroChrono() {
     const method = 'POST';
 
     try {
-      const response = await fetch(`http://localhost:3013${endpoint}`, {
+      const response = await fetch(`https://api.pomello.danielarroyo.dev${endpoint}`, {
         method,
         headers: {
           'Content-Type': 'application/json',
