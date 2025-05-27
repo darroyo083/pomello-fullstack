@@ -1,6 +1,7 @@
 import { getToken } from "./localStorage";
 
-const BASE_URL = "http://localhost:3013";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+// const BASE_URL = "http://localhost:3013";
 
 /**
  * Performs a fetch request to the given route.
