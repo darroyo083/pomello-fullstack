@@ -12,7 +12,8 @@ const APP_PORT = process.env.APP_PORT;
 const CLIENT_URL = process.env.CLIENT_URL;
 const app = express();
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: CLIENT_URL, //para despliegue
+    // origin: 'http://localhost:5173', //para desarrollo local
     credentials: true
 };
 
