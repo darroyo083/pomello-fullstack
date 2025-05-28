@@ -16,7 +16,7 @@ const Layout = () => {
       <div className="flex flex-1 overflow-hidden">
         <AsideNavbar />
         <DropdownMenu />
-        <main className="flex-1 overflow-auto">
+        <main className="flex-1 overflow-auto bg-gray-800">
           <Outlet />
         </main>
       </div>
